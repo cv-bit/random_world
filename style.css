@@ -1,0 +1,41 @@
+.world-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-container {
+    width: fit-content;
+    height: fit-content;
+    background-color: #222;
+    border: 3px solid #222;
+    padding: 25px;
+    margin: 10px;
+}
+
+.location-dungeon-container {
+    width: fit-content;
+    height: fit-content;
+    background-color: #222;
+    border: 3px solid #222;
+    padding: 25px;
+    margin: 10px;   
+}
+
+.game-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid #222;
+    padding: 0;
+}
+
+.dungeon-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid #222;
+    padding: 0;
+}
