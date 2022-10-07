@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Silkscreen', cursive;
 }
 
 .world-container {
@@ -17,6 +18,12 @@
     background-color: #007FFF;
     position: relative;
     padding: 50px;
+    padding-top: 25px;
+}
+
+.world-container h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
 .compass {
