@@ -1,8 +1,6 @@
 
-
-const map = document.getElementById('map')
+const dungeon = document.getElementById('dungeon')
 const world = document.getElementById('world')
-const game = document.getElementById('game') 
 
 const worldX = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
@@ -11,24 +9,20 @@ const worldY = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 const locationNum = Math.floor((Math.random() * 5) +1);
 const enemyNum = Math.floor((Math.random() * 10) +1);
 
+const color_4 = '#484848'
+const color_5 = 'rgb(136, 136, 136)'
+const color_6 = '#000'
 
-const color_1 = 'rgb(0, 255, 0)'
-const color_2 = '#0000FF'
-const color_3 = '#CD853F'
-
-map.style.backgroundColor = color_3
-game.style.backgroundColor = color_2
-
-const world_tiles = [color_1, color_2]
+const dungeon_tiles = [color_4, color_5]
 
 for (let i = 0; i < worldX.length; i++) {
     const row = document.createElement('div')
 
     const index = i
-    game.appendChild(row)
+    dungeon.appendChild(row)
     for (let j = 0; j < worldY.length; j++) {
         const block = document.createElement('div')
-        block.id = (index * 10) + (j + 1)
+        block.id = (index * 10) + (j + 101)
 
         block.style = "width: 50px; height: 50px; background-color: #333; border: 2px solid #333;"
 
@@ -51,23 +45,26 @@ const shuffle = (arr) => {
     return arr;
 }
 
-const randomWorld = () => {
+const randomDungeon = () => {
     let allBlocks = []
     let path = []
-    for (let i = 1; i < (worldX.length * worldY.length) + 1; i++) {
+    for (let i = 101; i < ((worldX.length) * worldY.length) + 101; i++) {
         allBlocks.push(i)
     }
     const randomBlocks = shuffle(allBlocks)
 
     for (let i = 0; i < randomBlocks.length; i++) {
         let currBlock = document.getElementById(randomBlocks[i])
-        currBlock.style.backgroundColor = shuffle(world_tiles)[0]
-        
-        if (currBlock.style.backgroundColor === color_1) {
+        currBlock.style.backgroundColor = shuffle(dungeon_tiles)[0]
+        if (currBlock.style.backgroundColor === color_5) {
+            path.push(currBlock)
+        }
+
+        if (currBlock.style.backgroundColor === color_5) {
             path.push(currBlock)
         }
     }
-    
+
     for (let i = 0; i < locationNum; i++) {
         let randomLocation = shuffle(path)
         randomLocation[i].style.backgroundImage = 'url(./assets/imgs/icons8-star-64.png)'
@@ -81,4 +78,4 @@ const randomWorld = () => {
     }
 }
 
-randomWorld()
+randomDungeon()
